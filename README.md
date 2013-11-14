@@ -21,20 +21,20 @@ Note "classmap": ["generated-classes/"]  is  important for generate a autoload c
 
 1. create build.properties file on root  level
 
-      
-      propel.project = propeldemo
-      # The Propel driver to use for generating SQL, etc.
-      propel.database = mysql
-      
-      # This must be a PDO DSN
-      propel.database.url = mysql:host=localhost;dbname=propel2
-      propel.database.user = root
-      # propel.database.password #
+
+            propel.project = propeldemo
+            # The Propel driver to use for generating SQL, etc.
+            propel.database = mysql
+            
+            # This must be a PDO DSN
+            propel.database.url = mysql:host=localhost;dbname=propel2
+            propel.database.user = root
+            # propel.database.password #
 
 
 3.  Run command 
 
- 
+
       > cd projectdir
       > vendor/bin/propel --verbose reverse "mysql:host=127.0.0.1;dbname=propel2;user=root;password=" 
           
