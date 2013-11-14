@@ -35,8 +35,8 @@ Note "classmap": ["generated-classes/"]  is  important for generate a autoload c
 3.  Run command 
 
 
-      > cd projectdir
-      > vendor/bin/propel --verbose reverse "mysql:host=127.0.0.1;dbname=propel2;user=root;password=" 
+            > cd projectdir
+            > vendor/bin/propel --verbose reverse "mysql:host=127.0.0.1;dbname=propel2;user=root;password=" 
           
 4. create a schema file shema.xml in a generated-schema folder
             
