@@ -1,7 +1,10 @@
 Propel2Exa
 ==========
 
-Use   composer json for  for install propel2
+How You can integrated prople2 ORM with your corephp project
+---------------------------------------------------------------
+
+Use   composer json for  for install propel2 with composer.json
 
 
       {
@@ -14,11 +17,10 @@ Use   composer json for  for install propel2
       }
 
 
-note "classmap": ["generated-classes/"]  is  importent for generate a uatoload class from generated-classes/
+Note "classmap": ["generated-classes/"]  is  important for generate a autoload class map from generated-classes/
 
 
-  1. create build.properties file on rool  level
-  2. content is
+  1. create build.properties file on root  level
       
             propel.project = propeldemo
             # The Propel driver to use for generating SQL, etc.
@@ -29,9 +31,10 @@ note "classmap": ["generated-classes/"]  is  importent for generate a uatoload c
             propel.database.user = root
             # propel.database.password #
 
-  3.  cd project dir
-    command 
-    -- $ vendor/bin/propel --verbose reverse "mysql:host=127.0.0.1;dbname=propel2;user=root;password=" 
+  3.  Run command 
+ 
+            > cd projectdir
+            >$ vendor/bin/propel --verbose reverse "mysql:host=127.0.0.1;dbname=propel2;user=root;password=" 
     
 4. create a schema file shema.xml in a generated-schema folder
             
@@ -45,7 +48,6 @@ note "classmap": ["generated-classes/"]  is  importent for generate a uatoload c
                  </vendor>
                </table>
                <table name="posts" idMethod="native" phpName="Posts">
-            
                  <column name="id" phpName="Id" type="INTEGER" primaryKey="true" autoIncrement="true" required="true"/>
                  <column name="title" phpName="Title" type="LONGVARCHAR" required="true"/>
                  <column name="content" phpName="Content" type="LONGVARCHAR" required="true"/>
@@ -67,17 +69,15 @@ note "classmap": ["generated-classes/"]  is  importent for generate a uatoload c
             
 
 
-Note – in schema file database  name is Importend beacues this is connection name use in rumtime-config.php file and  rumtime-config.xml
+Note – in schema file database  name is Impotent because this is connection name use in runtime-config.php file and  runtime-config.xml
 
 
 now create model from schema file
--- vendor/bin/propel build:model
-
+                   >vendor/bin/propel build:model
 
 --create all required model class file in  generated-class file
 
-
-now make a runtime configfile with xml or manualy 
+--now make a runtime config file with xml or manualy 
 
 -- create a runtime-config.xml file in rool directory  with below content
 
@@ -106,26 +106,21 @@ now make a runtime configfile with xml or manualy
        </propel>
       </config>
 
- Note   in above file datasource id name is very importent it is same as schema file database  connection name 
+ Note   in above file datasource id name is very important it is same as schema file database  connection name 
 
 
 
 run below command for generate
 runtime config file 
--- vendor/bin/propel config:convert-xml
+           > vendor/bin/propel config:convert-xml
 
-This will generate a config.php file in generated-conf folder 
+--This will generate a config.php file in generated-conf folder 
+--now  we are ready to run the application 
 
-
-now  we are ready to run the application 
-
-
-make initial level boostrap file 
-
-bootstrap.php  file  with bellow content 
-
+--Make root level boostrap.php file 
 
       <?php
+       # bootstrap.php 
       // setup the autoloading // patha to vendor /autoload file 
       require_once 'vendor/autoload.php';
       
