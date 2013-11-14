@@ -131,12 +131,12 @@ runtime config file
 
 ready for test 
 make a test.php file
-      <?php 
-         require 'bootstrap.php'
-         $userobj= new Users();
-         $userobj->setName(“abc”);
-         $userobj->setAge(20);
-         $userobj->save();
+            <?php 
+            require 'bootstrap.php'
+            $userobj= new Users();
+            $userobj->setName(“abc”);
+            $userobj->setAge(20);
+            $userobj->save();
 
 
 
