@@ -6,7 +6,6 @@ How You can integrated prople2 ORM with your corephp project
 
 Use   composer json for  for install propel2 with composer.json
 
-
       {
          "require": {
              "propel/propel": "2.0.*@dev"
@@ -20,24 +19,28 @@ Use   composer json for  for install propel2 with composer.json
 Note "classmap": ["generated-classes/"]  is  important for generate a autoload class map from generated-classes/
 
 
-  1. create build.properties file on root  level
-      
-            propel.project = propeldemo
-            # The Propel driver to use for generating SQL, etc.
-            propel.database = mysql
-            
-            # This must be a PDO DSN
-            propel.database.url = mysql:host=localhost;dbname=propel2
-            propel.database.user = root
-            # propel.database.password #
+1. create build.properties file on root  level
 
-  3.  Run command 
+      
+      propel.project = propeldemo
+      # The Propel driver to use for generating SQL, etc.
+      propel.database = mysql
+      
+      # This must be a PDO DSN
+      propel.database.url = mysql:host=localhost;dbname=propel2
+      propel.database.user = root
+      # propel.database.password #
+
+
+3.  Run command 
+
  
-            > cd projectdir
-            >$ vendor/bin/propel --verbose reverse "mysql:host=127.0.0.1;dbname=propel2;user=root;password=" 
-    
+      > cd projectdir
+      > vendor/bin/propel --verbose reverse "mysql:host=127.0.0.1;dbname=propel2;user=root;password=" 
+          
 4. create a schema file shema.xml in a generated-schema folder
             
+
             <?xml version="1.0" encoding="utf-8"?>
               <database name="bookstore" defaultIdMethod="native" defaultPhpNamingMethod="underscore">
                <table name="groups" idMethod="native" phpName="Groups">
@@ -73,7 +76,8 @@ Note – in schema file database  name is Impotent because this is connection na
 
 
 now create model from schema file
-                   >vendor/bin/propel build:model
+
+      > vendor/bin/propel build:model
 
 --create all required model class file in  generated-class file
 
@@ -112,7 +116,8 @@ now create model from schema file
 
 run below command for generate
 runtime config file 
-           > vendor/bin/propel config:convert-xml
+
+      > vendor/bin/propel config:convert-xml
 
 --This will generate a config.php file in generated-conf folder 
 --now  we are ready to run the application 
