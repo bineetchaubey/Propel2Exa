@@ -20,51 +20,51 @@ note "classmap": ["generated-classes/"]  is  importent for generate a uatoload c
   1. create build.properties file on rool  level
   2. content is
       
-      propel.project = propeldemo
-      # The Propel driver to use for generating SQL, etc.
-      propel.database = mysql
-      
-      # This must be a PDO DSN
-      propel.database.url = mysql:host=localhost;dbname=propel2
-      propel.database.user = root
-      # propel.database.password #
+            propel.project = propeldemo
+            # The Propel driver to use for generating SQL, etc.
+            propel.database = mysql
+            
+            # This must be a PDO DSN
+            propel.database.url = mysql:host=localhost;dbname=propel2
+            propel.database.user = root
+            # propel.database.password #
 
   3.  cd project dir
     command 
     -- $ vendor/bin/propel --verbose reverse "mysql:host=127.0.0.1;dbname=propel2;user=root;password=" 
     
 4. create a schema file shema.xml in a generated-schema folder
-
-    
-      <?xml version="1.0" encoding="utf-8"?>
-            <database name="bookstore" defaultIdMethod="native" defaultPhpNamingMethod="underscore">
-              <table name="groups" idMethod="native" phpName="Groups">
-                <column name="id" phpName="Id" type="INTEGER" primaryKey="true" autoIncrement="true" required="true"/>
-                <column name="name" phpName="Name" type="VARCHAR" size="100" required="true"/>
-                <vendor type="mysql">
-                  <parameter name="Engine" value="InnoDB"/>
-                </vendor>
-              </table>
-              <table name="posts" idMethod="native" phpName="Posts">
-                <column name="id" phpName="Id" type="INTEGER" primaryKey="true" autoIncrement="true" required="true"/>
-                <column name="title" phpName="Title" type="LONGVARCHAR" required="true"/>
-                <column name="content" phpName="Content" type="LONGVARCHAR" required="true"/>
-                <column name="user_id" phpName="UserId" type="INTEGER" required="true"/>
-                <vendor type="mysql">
-                  <parameter name="Engine" value="MyISAM"/>
-                </vendor>
-              </table>
-              <table name="users" idMethod="native" phpName="Users">
-                <column name="id" phpName="Id" type="INTEGER" primaryKey="true" autoIncrement="true" required="true"/>
-                <column name="name" phpName="Name" type="VARCHAR" size="200" required="true"/>
-                <column name="age" phpName="Age" type="VARCHAR" size="50" required="true"/>
-                <column name="email" phpName="Email" type="VARCHAR" size="200" required="true"/>
-                <vendor type="mysql">
-                  <parameter name="Engine" value="InnoDB"/>
-                </vendor>
-              </table>
-            </database>
-
+            
+            <?xml version="1.0" encoding="utf-8"?>
+              <database name="bookstore" defaultIdMethod="native" defaultPhpNamingMethod="underscore">
+               <table name="groups" idMethod="native" phpName="Groups">
+                 <column name="id" phpName="Id" type="INTEGER" primaryKey="true" autoIncrement="true" required="true"/>
+                 <column name="name" phpName="Name" type="VARCHAR" size="100" required="true"/>
+                 <vendor type="mysql">
+                   <parameter name="Engine" value="InnoDB"/>
+                 </vendor>
+               </table>
+               <table name="posts" idMethod="native" phpName="Posts">
+            
+                 <column name="id" phpName="Id" type="INTEGER" primaryKey="true" autoIncrement="true" required="true"/>
+                 <column name="title" phpName="Title" type="LONGVARCHAR" required="true"/>
+                 <column name="content" phpName="Content" type="LONGVARCHAR" required="true"/>
+                 <column name="user_id" phpName="UserId" type="INTEGER" required="true"/>
+                 <vendor type="mysql">
+                   <parameter name="Engine" value="MyISAM"/>
+                 </vendor>
+               </table>
+               <table name="users" idMethod="native" phpName="Users">
+                 <column name="id" phpName="Id" type="INTEGER" primaryKey="true" autoIncrement="true" required="true"/>
+                 <column name="name" phpName="Name" type="VARCHAR" size="200" required="true"/>
+                 <column name="age" phpName="Age" type="VARCHAR" size="50" required="true"/>
+                 <column name="email" phpName="Email" type="VARCHAR" size="200" required="true"/>
+                 <vendor type="mysql">
+                   <parameter name="Engine" value="InnoDB"/>
+                 </vendor>
+               </table>
+              </database>
+            
 
 
 Note – in schema file database  name is Importend beacues this is connection name use in rumtime-config.php file and  rumtime-config.xml
