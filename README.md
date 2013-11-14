@@ -131,7 +131,7 @@ runtime config file
 
 ready for test 
 make a test.php file
-            <?php 
+            
             require 'bootstrap.php'
             $userobj= new Users();
             $userobj->setName(“abc”);
