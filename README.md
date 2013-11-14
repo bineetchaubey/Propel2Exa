@@ -126,17 +126,18 @@ runtime config file
       
       // setup Propel // fpath to runtime configfile 
       require_once 'generated-conf/config.php';
-
+      
 
 
 ready for test 
 make a test.php file
-            
-            require 'bootstrap.php'
-            $userobj= new Users();
-            $userobj->setName(“abc”);
-            $userobj->setAge(20);
-            $userobj->save();
+
+      <?php       
+      require 'bootstrap.php'
+      $userobj= new Users();
+      $userobj->setName(“abc”);
+      $userobj->setAge(20);
+      $userobj->save();
 
 
 
