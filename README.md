@@ -4,14 +4,14 @@ Propel2Exa
 Use   composer json for  for install propel2
 
 
-{
-   "require": {
-       "propel/propel": "2.0.*@dev"
-   },
-   "autoload": { 
-        "classmap": ["generated-classes/"] 
-   } 
-}
+      {
+         "require": {
+             "propel/propel": "2.0.*@dev"
+         },
+         "autoload": { 
+              "classmap": ["generated-classes/"] 
+         } 
+      }
 
 
 note "classmap": ["generated-classes/"]  is  importent for generate a uatoload class from generated-classes/
@@ -36,35 +36,34 @@ note "classmap": ["generated-classes/"]  is  importent for generate a uatoload c
 4. create a schema file shema.xml in a generated-schema folder
 
     
-    <?xml version="1.0" encoding="utf-8"?>
-    <database name="bookstore" defaultIdMethod="native" defaultPhpNamingMethod="underscore">
-     <table name="groups" idMethod="native" phpName="Groups">
-       <column name="id" phpName="Id" type="INTEGER" primaryKey="true" autoIncrement="true" required="true"/>
-       <column name="name" phpName="Name" type="VARCHAR" size="100" required="true"/>
-       <vendor type="mysql">
-         <parameter name="Engine" value="InnoDB"/>
-       </vendor>
-     </table>
-     <table name="posts" idMethod="native" phpName="Posts">
-    
-       <column name="id" phpName="Id" type="INTEGER" primaryKey="true" autoIncrement="true" required="true"/>
-       <column name="title" phpName="Title" type="LONGVARCHAR" required="true"/>
-       <column name="content" phpName="Content" type="LONGVARCHAR" required="true"/>
-       <column name="user_id" phpName="UserId" type="INTEGER" required="true"/>
-       <vendor type="mysql">
-         <parameter name="Engine" value="MyISAM"/>
-       </vendor>
-     </table>
-     <table name="users" idMethod="native" phpName="Users">
-       <column name="id" phpName="Id" type="INTEGER" primaryKey="true" autoIncrement="true" required="true"/>
-       <column name="name" phpName="Name" type="VARCHAR" size="200" required="true"/>
-       <column name="age" phpName="Age" type="VARCHAR" size="50" required="true"/>
-       <column name="email" phpName="Email" type="VARCHAR" size="200" required="true"/>
-       <vendor type="mysql">
-         <parameter name="Engine" value="InnoDB"/>
-       </vendor>
-     </table>
-    </database>
+      <?xml version="1.0" encoding="utf-8"?>
+            <database name="bookstore" defaultIdMethod="native" defaultPhpNamingMethod="underscore">
+              <table name="groups" idMethod="native" phpName="Groups">
+                <column name="id" phpName="Id" type="INTEGER" primaryKey="true" autoIncrement="true" required="true"/>
+                <column name="name" phpName="Name" type="VARCHAR" size="100" required="true"/>
+                <vendor type="mysql">
+                  <parameter name="Engine" value="InnoDB"/>
+                </vendor>
+              </table>
+              <table name="posts" idMethod="native" phpName="Posts">
+                <column name="id" phpName="Id" type="INTEGER" primaryKey="true" autoIncrement="true" required="true"/>
+                <column name="title" phpName="Title" type="LONGVARCHAR" required="true"/>
+                <column name="content" phpName="Content" type="LONGVARCHAR" required="true"/>
+                <column name="user_id" phpName="UserId" type="INTEGER" required="true"/>
+                <vendor type="mysql">
+                  <parameter name="Engine" value="MyISAM"/>
+                </vendor>
+              </table>
+              <table name="users" idMethod="native" phpName="Users">
+                <column name="id" phpName="Id" type="INTEGER" primaryKey="true" autoIncrement="true" required="true"/>
+                <column name="name" phpName="Name" type="VARCHAR" size="200" required="true"/>
+                <column name="age" phpName="Age" type="VARCHAR" size="50" required="true"/>
+                <column name="email" phpName="Email" type="VARCHAR" size="200" required="true"/>
+                <vendor type="mysql">
+                  <parameter name="Engine" value="InnoDB"/>
+                </vendor>
+              </table>
+            </database>
 
 
 
@@ -136,13 +135,13 @@ bootstrap.php  file  with bellow content
 
 
 ready for test 
-
 make a test.php file
-require 'bootstrap.php'
-$userobj= new Users();
-$userobj->setName(“abc”);
-$userobj->setAge(20);
-$userobj->save();
+      <?php 
+         require 'bootstrap.php'
+         $userobj= new Users();
+         $userobj->setName(“abc”);
+         $userobj->setAge(20);
+         $userobj->save();
 
 
 
