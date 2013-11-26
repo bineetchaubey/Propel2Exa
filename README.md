@@ -170,21 +170,22 @@ need to make a new buildtime-conf.xml  file with same content as  runtime-conf.x
 
 make change in your schema.xml file and now run bellow command 
 
-$ vendor/bin/propel  diff
+      $ vendor/bin/propel  diff
 
 $vendor/bin/propel migration   // also use migration:up and migration:down for change back
 
 now again generate new php class 
 
-vendor/bin/propel model:build
+      $ vendor/bin/propel model:build
 
 now  regenerate new  run time config class
-$ vendor/bin/propel config:convert-xml
+
+      $vendor/bin/propel config:convert-xml
 
 
 now update composer to create autoload class for new generated file in 
 
-$ composer update
+      $ composer update
 
 
 
