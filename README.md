@@ -77,13 +77,13 @@ Note – in schema file database  name is Impotent because this is connection na
 
 now create model from schema file
 
-      > vendor/bin/propel build:model
+      > vendor/bin/propel model:build
 
 --create all required model class file in  generated-class file
 
 --now make a runtime config file with xml or manualy 
 
--- create a runtime-config.xml file in rool directory  with below content
+-- create a runtime-conf.xml file in rool directory  with below content
 
       
       <?xml version="1.0" encoding="UTF-8"?>
@@ -146,6 +146,45 @@ make a test.php file
 
 
 
+
+For migration
+----------------------
+
+need to make a new buildtime-conf.xml  file with same content as  runtime-conf.xml on same lavel
+
+      <?xml version="1.0" encoding="UTF-8"?>
+      <config>
+       <propel> 
+         <datasources default="bookstore">
+           <datasource id="bookstore">
+             <adapter>mysql</adapter> <!-- sqlite, mysql, myssql, oracle, or pgsql -->
+             <connection>
+               <dsn>mysql:host=127.0.0.1;dbname=propel2</dsn>
+               <user>root</user>
+               <password></password>
+             </connection>
+           </datasource>
+         </datasources>
+
+
+
+make change in your schema.xml file and now run bellow command 
+
+$ vendor/bin/propel  diff
+
+$vendor/bin/propel migration   // also use migration:up and migration:down for change back
+
+now again generate new php class 
+
+vendor/bin/propel model:build
+
+now  regenerate new  run time config class
+$ vendor/bin/propel config:convert-xml
+
+
+now update composer to create autoload class for new generated file in 
+
+$ composer update
 
 
 
